@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>哈希表 | 前端开发</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="/logo_42x42.png">
+    <meta name="description" content="记录前端使用的技术">
+    
+    <link rel="preload" href="/assets/css/0.styles.63b3120f.css" as="style"><link rel="preload" href="/assets/js/app.20c9226c.js" as="script"><link rel="preload" href="/assets/js/2.da46704c.js" as="script"><link rel="preload" href="/assets/js/13.55c43a1f.js" as="script"><link rel="prefetch" href="/assets/js/10.7bd6402e.js"><link rel="prefetch" href="/assets/js/11.e2ff46f2.js"><link rel="prefetch" href="/assets/js/12.873b2798.js"><link rel="prefetch" href="/assets/js/3.908b75eb.js"><link rel="prefetch" href="/assets/js/4.b414ff39.js"><link rel="prefetch" href="/assets/js/5.31914953.js"><link rel="prefetch" href="/assets/js/6.90e85c92.js"><link rel="prefetch" href="/assets/js/7.e221260c.js"><link rel="prefetch" href="/assets/js/8.66513f0f.js"><link rel="prefetch" href="/assets/js/9.c3844857.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.63b3120f.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/logo_42x42.png" alt="前端开发" class="logo"> <span class="site-name can-hide">前端开发</span></a> <div class="links"><!----> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="笔记" class="dropdown-title"><span class="title">笔记</span> <span class="arrow down"></span></button> <button type="button" aria-label="笔记" class="mobile-dropdown-title"><span class="title">笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/zh-cn/nodes/other/01-其它笔记.html" class="nav-link">
+  随记
+</a></li><li class="dropdown-item"><!----> <a href="/zh-cn/nodes/js/01-日常开发工具函数.html" class="nav-link">
+  JS相关
+</a></li><li class="dropdown-item"><!----> <a href="/zh-cn/nodes/css/01-日常开发CSS样式类.html" class="nav-link">
+  CSS相关
+</a></li><li class="dropdown-item"><!----> <a href="/zh-cn/nodes/node/" class="nav-link">
+  nodejs相关
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Vue全家桶" class="dropdown-title"><span class="title">Vue全家桶</span> <span class="arrow down"></span></button> <button type="button" aria-label="Vue全家桶" class="mobile-dropdown-title"><span class="title">Vue全家桶</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/zh-cn/vue/vue2/" class="nav-link">
+  vue2.x
+</a></li><li class="dropdown-item"><!----> <a href="/zh-cn/vue/router/" class="nav-link">
+  vue-router
+</a></li><li class="dropdown-item"><!----> <a href="/zh-cn/vue/vuex/" class="nav-link">
+  vuex
+</a></li><li class="dropdown-item"><!----> <a href="/zh-cn/vue/axios/" class="nav-link">
+  axios
+</a></li></ul></div></div><div class="nav-item"><a href="/zh-cn/webpack.html" class="nav-link">
+  Webpack
+</a></div><div class="nav-item"><a href="/zh-cn/article/" class="nav-link">
+  文章分享
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="笔记" class="dropdown-title"><span class="title">笔记</span> <span class="arrow down"></span></button> <button type="button" aria-label="笔记" class="mobile-dropdown-title"><span class="title">笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/zh-cn/nodes/other/01-其它笔记.html" class="nav-link">
+  随记
+</a></li><li class="dropdown-item"><!----> <a href="/zh-cn/nodes/js/01-日常开发工具函数.html" class="nav-link">
+  JS相关
+</a></li><li class="dropdown-item"><!----> <a href="/zh-cn/nodes/css/01-日常开发CSS样式类.html" class="nav-link">
+  CSS相关
+</a></li><li class="dropdown-item"><!----> <a href="/zh-cn/nodes/node/" class="nav-link">
+  nodejs相关
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Vue全家桶" class="dropdown-title"><span class="title">Vue全家桶</span> <span class="arrow down"></span></button> <button type="button" aria-label="Vue全家桶" class="mobile-dropdown-title"><span class="title">Vue全家桶</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/zh-cn/vue/vue2/" class="nav-link">
+  vue2.x
+</a></li><li class="dropdown-item"><!----> <a href="/zh-cn/vue/router/" class="nav-link">
+  vue-router
+</a></li><li class="dropdown-item"><!----> <a href="/zh-cn/vue/vuex/" class="nav-link">
+  vuex
+</a></li><li class="dropdown-item"><!----> <a href="/zh-cn/vue/axios/" class="nav-link">
+  axios
+</a></li></ul></div></div><div class="nav-item"><a href="/zh-cn/webpack.html" class="nav-link">
+  Webpack
+</a></div><div class="nav-item"><a href="/zh-cn/article/" class="nav-link">
+  文章分享
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/zh-cn/nodes/other/01-其它笔记.html" class="active sidebar-link">其它笔记</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/zh-cn/nodes/other/01-其它笔记.html#哈希表" class="sidebar-link">哈希表</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/zh-cn/nodes/other/01-其它笔记.html#什么是哈希表" class="sidebar-link">什么是哈希表</a></li><li class="sidebar-sub-header"><a href="/zh-cn/nodes/other/01-其它笔记.html#js-模拟实现-hashtable" class="sidebar-link">JS 模拟实现 HashTable</a></li></ul></li><li class="sidebar-sub-header"><a href="/zh-cn/nodes/other/01-其它笔记.html#http-请求" class="sidebar-link">HTTP 请求</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/zh-cn/nodes/other/01-其它笔记.html#http-请求状态码" class="sidebar-link">HTTP 请求状态码</a></li><li class="sidebar-sub-header"><a href="/zh-cn/nodes/other/01-其它笔记.html#restful-规范及其理解" class="sidebar-link">Restful 规范及其理解</a></li><li class="sidebar-sub-header"><a href="/zh-cn/nodes/other/01-其它笔记.html#get-请求-和-post-请求的区别" class="sidebar-link">Get 请求 和 Post 请求的区别</a></li></ul></li></ul></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="哈希表"><a href="#哈希表" class="header-anchor">#</a> 哈希表</h2> <h3 id="什么是哈希表"><a href="#什么是哈希表" class="header-anchor">#</a> 什么是哈希表</h3> <p>哈希表（Hash table，也叫散列表），是根据关键码值(Key value)而直接进行访问的数据结构。也就是说，它通过把关键码值映射到表中一个位置来访问记录，以加快查找的速度。这个映射函数叫做散列函数，存放记录的数组叫做散列表(哈希表)。</p> <ol><li><strong>可以根据一个 key 值来直接访问数据，因此查找速度快</strong></li> <li><strong>哈希表是一个数据结构</strong></li> <li><strong>哈希表本质上是一个数组</strong> 底层是用数组实现的</li> <li>实现哈希表我们可以采用两种方法：数组 + 链表 ； 数组 + 二叉树</li></ol> <ul><li>第一种数组+链表的形式，本质上是出现哈希冲突的一种解决办法，使用链表存放，所以综合起来叫做数组+链表的方式来实现一个哈希表，另外数组中一般就是存放的单一的数据，而哈希表中存放的是一个键值对</li></ul> <h3 id="js-模拟实现-hashtable"><a href="#js-模拟实现-hashtable" class="header-anchor">#</a> JS 模拟实现 HashTable</h3> <p>通过构造函数，ES6 中的 Map 实例来实现 HashTable</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">HashTable</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// 创建对象用于接受键值对</span>
+	<span class="token keyword">var</span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token comment">// 添加关键字，无返回值</span>
+	<span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function-variable function">add</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">key<span class="token punctuation">,</span> value</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token comment">//判断哈希表中是否存在key，若不存在，赋值</span>
+		<span class="token comment">// if (!this.hasKey(key)) {</span>
+		<span class="token comment">//   map.set(key, value)</span>
+		<span class="token comment">// }</span>
+		<span class="token comment">// 存在 则需要处理hash冲突， 这里直接覆盖</span>
+		map<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> value<span class="token punctuation">)</span>
+	<span class="token punctuation">}</span>
+
+	<span class="token comment">// 删除关键字, 如果哈希表中包含key，并且delete返回true则删除</span>
+	<span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function-variable function">remove</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">key</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> map<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span>
+	<span class="token punctuation">}</span>
+
+	<span class="token comment">// 哈希表中是否包含key，返回一个布尔值</span>
+	<span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function-variable function">hasKey</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">key</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> map<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span>
+	<span class="token punctuation">}</span>
+
+	<span class="token comment">// 哈希表中是否包含value，返回一个布尔值</span>
+	<span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function-variable function">hasValue</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">value</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> map<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span> <span class="token operator">===</span> value
+	<span class="token punctuation">}</span>
+
+	<span class="token comment">// 根据键获取value,如果不存在就返回null</span>
+	<span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function-variable function">getValue</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">key</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">hasKey</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span> <span class="token operator">?</span> map<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token keyword">null</span>
+	<span class="token punctuation">}</span>
+
+	<span class="token comment">// 获取哈希表中的所有value, 返回一个数组</span>
+	<span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function-variable function">getAllValues</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">var</span> values <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+		<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> <span class="token punctuation">[</span>_<span class="token punctuation">,</span> value<span class="token punctuation">]</span> <span class="token keyword">of</span> map<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			values<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span>
+		<span class="token punctuation">}</span>
+		<span class="token keyword">return</span> values
+	<span class="token punctuation">}</span>
+
+	<span class="token comment">// 根据值获取哈希表中的key，如果不存在就返回null</span>
+	<span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function-variable function">getKey</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">value</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> <span class="token punctuation">[</span>k<span class="token punctuation">,</span> v<span class="token punctuation">]</span> <span class="token keyword">of</span> map<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			<span class="token keyword">if</span> <span class="token punctuation">(</span>v <span class="token operator">===</span> value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+				<span class="token keyword">return</span> k
+			<span class="token punctuation">}</span>
+		<span class="token punctuation">}</span>
+		<span class="token comment">// 遍历结束没有return，就返回null</span>
+		<span class="token keyword">return</span> <span class="token keyword">null</span>
+	<span class="token punctuation">}</span>
+
+	<span class="token comment">// 获取哈希表中所有的key,返回一个数组</span>
+	<span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function-variable function">getAllKeys</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">var</span> keys <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+		<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> <span class="token punctuation">[</span>k<span class="token punctuation">,</span> _<span class="token punctuation">]</span> <span class="token keyword">of</span> map<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			keys<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>k<span class="token punctuation">)</span>
+		<span class="token punctuation">}</span>
+		<span class="token keyword">return</span> keys
+	<span class="token punctuation">}</span>
+
+	<span class="token comment">// 获取哈希表中记录的条数，返回一个数值</span>
+	<span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function-variable function">getSize</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> map<span class="token punctuation">.</span>size
+	<span class="token punctuation">}</span>
+
+	<span class="token comment">// 清空哈希表，无返回值</span>
+	<span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function-variable function">clear</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		map<span class="token punctuation">.</span><span class="token function">clear</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="http-请求"><a href="#http-请求" class="header-anchor">#</a> HTTP 请求</h2> <h3 id="http-请求状态码"><a href="#http-请求状态码" class="header-anchor">#</a> HTTP 请求状态码</h3> <h4 id="常用状态码"><a href="#常用状态码" class="header-anchor">#</a> 常用状态码</h4> <ul><li>200 - 请求成功</li> <li>301 - 资源（网页等）被永久转移到其它 URL</li> <li>404 - 请求的资源（网页等）不存在</li> <li>500 - 内部服务器错误</li></ul> <h4 id="分类"><a href="#分类" class="header-anchor">#</a> 分类</h4> <ul><li>100 - 客户端请求继续</li> <li>101 - 切换更高的协议</li> <li>200 - 请求成功</li> <li>201 - 请求成功并创建了新的资源</li> <li>202 - 请求已接受，但未完成处理</li> <li>203 - 请求成功，非授权的信息</li> <li>204 - 请求成功，无内容返回</li> <li>205 - 请求成功，客户端需重置内容</li> <li>206 - 请求成功，服务端处理了部分 GET 请求</li> <li>300 - 请求的资源包含多种选择</li> <li>301 - 请求重定向，永久移动</li> <li>302 - 请求重定向，临时移动</li> <li>303 - 请求重定向，查看其它地址，使用 GET 和 POST 时查看</li> <li>304 - 请求的资源未修改，服务器返回此状态码时，不会返回任何资源，客户端会访问缓存资源</li> <li>305 - 代理请求</li> <li>400 - 客户端请求的语法错误，服务器无法理解</li> <li>401 - 请求要求用户的身份认证</li> <li>403 - 服务器理解请求客户端的请求，但是拒绝执行此请求</li> <li>404 - 未找到资源</li> <li>405 - 客户端请求中的方法被禁止</li> <li>406 - 服务器无法根据客户端请求的内容特性完成请求</li> <li>407 - 请求要求代理的身份认证</li> <li>408 - 请求时间过长，超时</li> <li>409 - 服务器完成客户端的 PUT 请求时可能返回此代码，服务器处理请求时发生了冲突</li> <li>410 - 客户端请求的资源已经不存在</li> <li>411 - 服务器无法处理客户端发送的不带 Content-Length 的请求信息</li> <li>412 - 客户端请求信息的先决条件错误</li> <li>413 - 请求的实体过大，服务器无法处理，因此拒绝请求</li> <li>414 - 请求的 URI 过长（URI 通常为网址），服务器无法处理</li> <li>415 - 服务器无法处理请求附带的媒体格式</li> <li>416 - 客户端请求的范围无效</li> <li>417 - 服务器无法满足 Expect 的请求头信息</li> <li>500 - 服务器内部错误，无法完成请求</li> <li>501 - 服务器不支持请求的功能，无法完成请求</li> <li>502 - 作为网关或者代理工作的服务器尝试执行请求时，从远程服务器接收到了一个无效的响应</li> <li>505 - 服务器不支持请求的 HTTP 协议的版本，无法完成处理</li></ul> <h3 id="restful-规范及其理解"><a href="#restful-规范及其理解" class="header-anchor">#</a> Restful 规范及其理解</h3> <p>REST 是 Representational State Transfer 的缩写，翻译是”表现层状态转化”（表述形式的状态转换）。 可以总结为一句话：REST 是所有 Web 应用都应该遵守的架构设计指导原则。
+面向资源是 REST 最明显的特征，对于同一个资源的一组不同的操作。资源是服务器上一个可命名的抽象概念，资源是以名词为核心来组织的，首先关注的是名词。REST 要求，必须通过统一的接口来对资源执行各种操作。对于每个资源只能执行一组有限的操作。</p> <p><strong>Restful 架构</strong></p> <ul><li>每个 URL 代表一种资源；</li> <li>客户端和服务器之间，传递这种资源的某种表现层；</li> <li>客户端通过四个 HTTP 动词，对服务器端资源进行操作，实现&quot;表现层状态转化&quot;。</li></ul> <p>7 个 HTTP 方法：GET/POST/PUT/DELETE/PATCH/HEAD/OPTIONS</p> <h3 id="get-请求-和-post-请求的区别"><a href="#get-请求-和-post-请求的区别" class="header-anchor">#</a> Get 请求 和 Post 请求的区别</h3> <ol><li>Get 是不安全的，因为在传输过程，数据被放在请求的 URL 中；Post 的所有操作对用户来说都是不可见的</li> <li>Get 传送的数据量较小，这主要是因为受 URL 长度限制；Post 传送的数据量较大，一般被默认为不受限制</li> <li>Get 限制 Form 表单的数据集的值必须为 ASCII 字符；而 Post 支持整个 ISO10646 字符集</li> <li>Get 执行效率却比 Post 方法好。Get 是 form 提交的默认方法</li></ol></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/assets/js/app.20c9226c.js" defer></script><script src="/assets/js/2.da46704c.js" defer></script><script src="/assets/js/13.55c43a1f.js" defer></script>
+  </body>
+</html>
