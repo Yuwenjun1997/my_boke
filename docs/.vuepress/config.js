@@ -2,7 +2,7 @@ const FileScanner = require('./common/FileScanner')
 const fileScanner = new FileScanner('../../zh-cn', 'zh-cn')
 
 module.exports = {
-	base: '/',
+	base: '/my_boke_vuepress/',
 	title: '前端开发',
 	description: '记录前端使用的技术',
 	head: [['link', { rel: 'icon', href: '/logo_42x42.png' }]],
