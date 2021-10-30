@@ -47,7 +47,7 @@ console.log(obj === undefined) // false
 
 相等操作符对于不同类型的值，进行的比较如下图所示：
 
-![非严格相等](/xdxpd.JPG)
+![非严格相等](/my_boke/xdxpd.JPG)
 
 在上面的表格中，`ToNumber(A)` 尝试在比较前将参数 A 转换为数字，这与 +A（单目运算符+）的效果相同。`ToPrimitive(A)`通过尝试调用 A 的`A.toString()` 和 `A.valueOf()` 方法，将参数 A 转换为原始值（Primitive）。
 
