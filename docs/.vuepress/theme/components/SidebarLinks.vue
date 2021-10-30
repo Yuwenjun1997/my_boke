@@ -55,8 +55,7 @@ export default {
 	methods: {
 		// 展开当前页面的侧边栏
 		isOpenPage(page) {
-			const href = window.location.href.split('#')[0]
-			return href.endsWith(page.regularPath)
+			return page.regularPath === this.$route.path
 		},
 		setActiveFlag() {
 			this.realItems = this.items.map(item => {
