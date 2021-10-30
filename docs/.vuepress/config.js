@@ -1,3 +1,4 @@
+const { prototype } = require('./common/FileScanner')
 const FileScanner = require('./common/FileScanner')
 const fileScanner = new FileScanner('../../zh-cn', 'zh-cn')
 
@@ -31,7 +32,7 @@ module.exports = {
 					{ text: 'vue2.x', link: '/zh-cn/vue/vue2/' },
 					{ text: 'vue-router', link: '/zh-cn/vue/router/' },
 					{ text: 'vuex', link: '/zh-cn/vue/vuex/' },
-					{ text: 'axios', link: '/zh-cn/vue/axios/' },
+					{ text: 'axios', link: '/zh-cn/vue/axios/01-Axios笔记' },
 				],
 			},
 			{
