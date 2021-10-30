@@ -833,14 +833,14 @@ console.log(arr.reverse()); //[9, 2, 4, 1]
 
 默认从小于大排序数组元素
 
-```text
+```js
 let arr = [1, 4, 2, 9];
 console.log(arr.sort()); //[1, 2, 4, 9]
 ```
 
 使用排序函数从大到小排序，参数一与参数二比较，返回正数为降序负数为升序
 
-```text
+```js
 let arr = [1, 4, 2, 9];
 
 console.log(arr.sort(function (v1, v2) {
@@ -850,7 +850,7 @@ console.log(arr.sort(function (v1, v2) {
 
 下面是按课程点击数由高到低排序
 
-```text
+```js
 let lessons = [
   { title: "媒体查询响应式布局", click: 78 },
   { title: "FLEX 弹性盒模型", click: 12 },
@@ -863,7 +863,7 @@ console.log(sortLessons);
 
 ### 排序原理
 
-```text
+```js
 let arr = [1, 5, 3, 9, 7];
 function sort(array, callback) {
   for (const n in array) {
