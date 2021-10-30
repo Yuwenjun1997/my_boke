@@ -1,0 +1,124 @@
+<template>
+	<ul v-if="realItems.length" class="sidebar-links">
+		<li v-for="(item, i) in realItems" :key="i" @click="changeActive(item)">
+			<SidebarGroup
+				v-if="item.type === 'group'"
+				:item="item"
+				:open="i === openGroupIndex"
+				:collapsable="item.collapsable || item.collapsible"
+				:depth="depth"
+				@toggle="toggleGroup(i)"
+			/>
+			<SidebarLink v-else :sidebar-depth="sidebarDepth" :item="item" />
+		</li>
+	</ul>
+</template>
+
+<script>
+import SidebarGroup from '@theme/components/SidebarGroup.vue'
+import SidebarLink from '@theme/components/SidebarLink.vue'
+import { isActive } from '../util'
+
+export default {
+	name: 'SidebarLinks',
+
+	components: { SidebarGroup, SidebarLink },
+
+	props: [
+		'items',
+		'depth', // depth of current sidebar links
+		'sidebarDepth', // depth of headers to be extracted
+		'initialOpenGroupIndex',
+	],
+
+	data() {
+		return {
+			realItems: [],
+			openGroupIndex: this.initialOpenGroupIndex || 0,
+		}
+	},
+
+	watch: {
+		$route() {
+			this.refreshIndex()
+		},
+		items(val) {
+			this.setActiveFlag()
+		},
+	},
+
+	created() {
+		this.setActiveFlag()
+		this.refreshIndex()
+	},
+
+	methods: {
+		// 展开当前页面的侧边栏
+		isOpenPage(page) {
+			const href = window.location.href.split('#')[0]
+			return href.endsWith(page.regularPath)
+		},
+		setActiveFlag() {
+			this.realItems = this.items.map(item => {
+				if (item.type === 'group') {
+					item.isActive = true
+				} else {
+					if (this.isOpenPage(item)) {
+						item.isActive = true
+					} else {
+						item.isActive = false
+					}
+				}
+				return item
+			})
+		},
+		changeActive(item) {
+			if (item.type === 'group') return
+			this.realItems.forEach(val => {
+				val.isActive = false
+			})
+			item.isActive = true
+		},
+		refreshIndex() {
+			const index = resolveOpenGroupIndex(this.$route, this.realItems)
+			if (index > -1) {
+				this.openGroupIndex = index
+			}
+		},
+
+		toggleGroup(index) {
+			this.openGroupIndex = index === this.openGroupIndex ? -1 : index
+		},
+
+		isActive(page) {
+			return isActive(this.$route, page.regularPath)
+		},
+	},
+}
+
+function resolveOpenGroupIndex(route, items) {
+	for (let i = 0; i < items.length; i++) {
+		const item = items[i]
+		if (descendantIsActive(route, item)) {
+			return i
+		}
+	}
+	return -1
+}
+
+function descendantIsActive(route, item) {
+	if (item.type === 'group') {
+		const childIsActive = item.path && isActive(route, item.path)
+		const grandChildIsActive = item.children.some(child => {
+			if (child.type === 'group') {
+				return descendantIsActive(route, child)
+			} else {
+				return child.type === 'page' && isActive(route, child.path)
+			}
+		})
+
+		return childIsActive || grandChildIsActive
+	}
+	return false
+}
+</script>
