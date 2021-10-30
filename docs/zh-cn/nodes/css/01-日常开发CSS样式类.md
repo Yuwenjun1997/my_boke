@@ -49,3 +49,40 @@
 	@include triangle(15px, $top: red);
 }
 ```
+
+## 滚动条
+
+```css
+::-webkit-scrollbar    //滚动条整体部分
+::-webkit-scrollbar-button   //滚动条两端的按钮
+::-webkit-scrollbar-track   // 外层轨道
+::-webkit-scrollbar-track-piece    //内层轨道，滚动条中间部分（除去）
+::-webkit-scrollbar-thumb //滚动条里面可以拖动的那个
+::-webkit-scrollbar-corner   //边角
+::-webkit-resizer   ///定义右下角拖动块的样式
+
+/*定义滚动条高宽及背景
+ 高宽分别对应横竖滚动条的尺寸*/
+::-webkit-scrollbar
+{
+    width:16px;
+    height:16px;
+    background-color:#F5F5F5;
+}
+/*定义滚动条轨道
+ 内阴影+圆角*/
+::-webkit-scrollbar-track
+{
+    -webkit-box-shadow:inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius:10px;
+    background-color:#F5F5F5;
+}
+/*定义滑块
+ 内阴影+圆角*/
+::-webkit-scrollbar-thumb
+{
+    border-radius:10px;
+    -webkit-box-shadow:inset 0 0 6px rgba(0,0,0,.3);
+    background-color:#555;
+}
+```
