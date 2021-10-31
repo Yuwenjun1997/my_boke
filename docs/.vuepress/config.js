@@ -29,7 +29,7 @@ module.exports = {
 			{
 				text: 'Vue全家桶',
 				items: [
-					{ text: 'vue2.x', link: '/zh-cn/vue/vue2/' },
+					{ text: 'vue2.x', link: '/zh-cn/vue/vue2/01-vue源码探究' },
 					{ text: 'vue-router', link: '/zh-cn/vue/router/' },
 					{ text: 'vuex', link: '/zh-cn/vue/vuex/' },
 					{ text: 'axios', link: '/zh-cn/vue/axios/01-Axios笔记' },
