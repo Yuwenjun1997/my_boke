@@ -27,6 +27,14 @@ module.exports = {
 				],
 			},
 			{
+				text: 'TypeScript',
+				items: [
+					{ text: '基础篇', link: '/zh-cn/typescript/base/01-编译第一个ts程序' },
+					{ text: '工程篇', link: '/zh-cn/typescript/project/' },
+					{ text: '实战篇', link: '/zh-cn/typescript/actualCombat/' },
+				],
+			},
+			{
 				text: 'Vue全家桶',
 				items: [
 					{ text: 'vue2.x', link: '/zh-cn/vue/vue2/01-vue源码探究' },
