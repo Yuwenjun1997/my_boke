@@ -1,6 +1,7 @@
 const makeSidebar = require('./utils/makeSidebar')
 
 module.exports = {
+  base: '/my_notes/',
 	title: '前端开发笔记',
 	description: '记录前端使用的技术',
 	head: [['link', { rel: 'icon', href: '/logo_42x42.png' }]],
