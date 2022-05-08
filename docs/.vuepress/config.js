@@ -1,72 +1,40 @@
-const { prototype } = require('./common/FileScanner')
-const FileScanner = require('./common/FileScanner')
-const fileScanner = new FileScanner('../../zh-cn', 'zh-cn')
+const makeSidebar = require('./utils/makeSidebar')
 
 module.exports = {
-	base: '/my_boke/',
-	title: '前端开发',
+	title: '前端开发笔记',
 	description: '记录前端使用的技术',
 	head: [['link', { rel: 'icon', href: '/logo_42x42.png' }]],
-	markdown: {},
-	themeConfig: {
-		activeHeaderLinks: true,
-		displayAllHeaders: true,
-		smoothScroll: true,
-		search: false,
-		searchMaxSuggestions: 10,
-		sidebarDepth: 2,
-		logo: '/logo_42x42.png',
-		nav: [
-			{
-				text: '笔记',
-				items: [
-					{ text: '随记', link: '/zh-cn/nodes/other/01-其它笔记' },
-					{ text: 'JS相关', link: '/zh-cn/nodes/js/01-日常开发工具函数' },
-					{ text: 'CSS相关', link: '/zh-cn/nodes/css/01-日常开发CSS样式类' },
-					{ text: 'nodejs相关', link: '/zh-cn/nodes/node/' },
-				],
-			},
-			{
-				text: 'TypeScript',
-				items: [
-					{ text: '基础篇', link: '/zh-cn/typescript/base/01-编译第一个ts程序' },
-					{ text: '工程篇', link: '/zh-cn/typescript/project/' },
-					{ text: '实战篇', link: '/zh-cn/typescript/actualCombat/' },
-				],
-			},
-			{
-				text: 'Vue全家桶',
-				items: [
-					{ text: 'vue2.x', link: '/zh-cn/vue/vue2/01-vue源码探究' },
-					{ text: 'vue-router', link: '/zh-cn/vue/router/' },
-					{ text: 'vuex', link: '/zh-cn/vue/vuex/' },
-					{ text: 'axios', link: '/zh-cn/vue/axios/01-Axios笔记' },
-				],
-			},
-			{
-				text: 'Webpack',
-				link: '/zh-cn/webpack',
-			},
-			{
-				text: '文章分享',
-				link: '/zh-cn/article/',
-			},
-		],
-		sidebar: fileScanner.makeSlidebar(),
+	// markdown 配置
+	markdown: {
+		lineNumbers: true,
 	},
-
-	plugins: [
-		'@vuepress/back-to-top',
-		[
-			'vuepress-plugin-zooming',
+	// 主题配置
+	themeConfig: {
+		logo: '/logo_42x42.png',
+		sidebarDepth: 2,
+		displayAllHeaders: true,
+		lastUpdated: '最后更新',
+		smoothScroll: true,
+		nav: [
+			{ text: 'JavaScript', link: '/notes/javascript/01-工具函数' },
+			{ text: 'TypeScript', link: '/notes/typescript/01-编译第一个ts程序' },
+			{ text: 'Vue.js', link: '/notes/vuejs/' },
 			{
-				selector: '.theme-default-content img',
-				delay: 1000,
-				options: {
-					bgColor: 'black',
-					zIndex: 10000,
-				},
+				text: '其它笔记',
+				items: [
+					{
+						text: 'html相关',
+						link: '/notes/others/html/',
+					},
+					{
+						text: 'css相关',
+						link: '/notes/others/css/01-常用样式',
+					},
+				],
 			},
 		],
-	],
+		sidebar: makeSidebar(),
+	},
+	// 插件
+	plugins: ['@vuepress/back-to-top'],
 }

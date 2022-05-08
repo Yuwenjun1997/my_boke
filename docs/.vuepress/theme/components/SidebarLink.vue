@@ -1,5 +1,5 @@
 <script>
-import { isActive, hashRE, groupHeaders } from '../util'
+import { isActive, hashRE, groupHeaders } from '@parent-theme/util'
 
 export default {
 	functional: true,
@@ -14,7 +14,7 @@ export default {
 		// matches
 		const active =
 			item.type === 'auto'
-				? selfActive || item.children.some(c => isActive($route, item.basePath + '#' + c.slug))
+				? selfActive || item.children.some((c) => isActive($route, item.basePath + '#' + c.slug))
 				: selfActive
 		const link =
 			item.type === 'external'
@@ -27,15 +27,15 @@ export default {
 			$themeLocaleConfig.sidebarDepth,
 			$themeConfig.sidebarDepth,
 			1,
-		].find(depth => depth !== undefined)
+		].find((depth) => depth !== undefined)
 
 		const displayAllHeaders = $themeLocaleConfig.displayAllHeaders || $themeConfig.displayAllHeaders
 
 		if (item.type === 'auto') {
-			return [link, renderChildren(h, item.children, item.basePath, $route, maxDepth, item.isActive)]
+			return [link, renderChildren(h, item.children, item.basePath, $route, maxDepth)]
 		} else if ((active || displayAllHeaders) && item.headers && !hashRE.test(item.path)) {
 			const children = groupHeaders(item.headers)
-			return [link, renderChildren(h, children, item.path, $route, maxDepth, item.isActive)]
+			return [link, renderChildren(h, children, item.path, $route, maxDepth)]
 		} else {
 			return link
 		}
@@ -64,18 +64,12 @@ function renderLink(h, to, text, active, level) {
 	return h('RouterLink', component, text)
 }
 
-function renderChildren(h, children, path, route, maxDepth, myActive, depth = 1) {
+function renderChildren(h, children, path, route, maxDepth, depth = 1) {
 	if (!children || depth > maxDepth) return null
-	const props = {
-		class: {
-			'sidebar-sub-headers': true,
-			'is-none': !myActive,
-		},
-	}
 	return h(
 		'ul',
-		props,
-		children.map(c => {
+		{ class: { 'sidebar-sub-headers': true, 'first-depth': depth === 1 } },
+		children.map((c) => {
 			const active = isActive(route, path + '#' + c.slug)
 			return h('li', { class: 'sidebar-sub-header' }, [
 				renderLink(h, path + '#' + c.slug, c.title, active, c.level - 1),
@@ -107,8 +101,12 @@ function renderExternal(h, to, text) {
 .sidebar .sidebar-sub-headers
   padding-left 1rem
   font-size 0.95em
-  &.is-none
-    display: none
+
+a.sidebar-link~.sidebar-sub-headers.first-depth
+  display: none
+
+a.sidebar-link.active~.sidebar-sub-headers.first-depth
+  display: block
 
 a.sidebar-link
   font-size 1em

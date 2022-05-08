@@ -1,18 +1,20 @@
 {
-  "name": "my_boke",
-  "version": "1.1.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "@vuepress/plugin-back-to-top": "^1.8.2",
-    "vuepress": "^1.8.2",
-    "vuepress-plugin-zooming": "^1.1.8"
-  }
+	"name": "vuepress-starter",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"docs:dev": "vuepress dev docs",
+		"docs:build": "vuepress build docs",
+		"eject": "vuepress eject"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"@vuepress/plugin-back-to-top": "^1.9.7",
+		"node-sass": "^6.0.1",
+		"sass-loader": "^10.2.1",
+		"vuepress": "^1.9.7"
+	}
 }
